@@ -1,11 +1,13 @@
 FROM debian:bookworm
 
-RUN apt update && apt install -y build-essential git wget bison flex
+ARG revision="revision_should_be_set"
+
+RUN apt update && apt install -y build-essential git wget bison flex bash-completion neovim coreutils
 RUN mkdir -p /gcc && cd /gcc && git init &&\
     git remote add origin https://github.com/gcc-mirror/gcc &&\
-    git fetch --depth=1 origin 97094d2ffd7d00261e6d7cc5d4a62dc7c2c89b64
+    git fetch --depth=1 origin $revision
 RUN cd /gcc &&\
-    git checkout 97094d2ffd7d00261e6d7cc5d4a62dc7c2c89b64
+    git checkout $revision
 RUN cd /gcc &&\
     ./contrib/download_prerequisites
 RUN cd /gcc &&\

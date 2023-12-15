@@ -14,6 +14,7 @@ jobs:
         with:
           # PAT to allow commit for workflow files
           token: ${{ secrets.WORKFLOW_COMMIT_TOKEN }}
+          repository: pbo-linaro/gcc-ci
       # build 10 revisions maximum per hour
       - run: ./update_revisions.sh 10
       - run: git config user.name "GitHub Actions Bot"

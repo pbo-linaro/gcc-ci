@@ -4,6 +4,9 @@ on:
 
 jobs:
   build_gcc:
+    env:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

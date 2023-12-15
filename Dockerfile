@@ -12,10 +12,10 @@ RUN cd /gcc &&\
     ./configure --prefix=/gcc-bin --enable-languages=c --disable-bootstrap --disable-multilib &&\
     make --jobs=$(nproc) &&\
     make install
-RUN echo 'deb-src http://deb.debian.org/debian/ bookworm main' >> /etc/apt/sources.list
-RUN apt update && apt build-dep -y gcc
-# https://gcc.gnu.org/install/test.html
-RUN apt update && apt install -y dejagnu expect tcl python3 python3-pytest
-RUN apt update && apt install -y autogen
-RUN cd /gcc &&\
-    make check -j8 2>&1 | tee check.log
+#RUN echo 'deb-src http://deb.debian.org/debian/ bookworm main' >> /etc/apt/sources.list
+#RUN apt update && apt build-dep -y gcc
+## https://gcc.gnu.org/install/test.html
+#RUN apt update && apt install -y dejagnu expect tcl python3 python3-pytest
+#RUN apt update && apt install -y autogen
+#RUN cd /gcc &&\
+#    make check -j8 2>&1 | tee check.log

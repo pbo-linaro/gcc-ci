@@ -1,11 +1,9 @@
 on:
-  schedule:
-    - cron: '0 */1 * * *'
   push:
     branches: [ "master" ]
 
 jobs:
-  app:
+  build_gcc:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

@@ -3,7 +3,7 @@ on:
     - cron: '* * * * *'
 
 jobs:
-  app:
+  update_revisions:
     runs-on: ubuntu-latest
     steps:
       - name: checkout

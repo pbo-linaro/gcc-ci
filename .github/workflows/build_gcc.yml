@@ -12,6 +12,7 @@ jobs:
       fail-fast: false
       matrix:
         revision: ["97094d2ffd7d00261e6d7cc5d4a62dc7c2c89b64"]
+        oldest: ["97094d2ffd7d00261e6d7cc5d4a62dc7c2c89b64"]
     steps:
       - name: checkout
         uses: actions/checkout@v3

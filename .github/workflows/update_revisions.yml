@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: '* * * * *'
+    - cron: '0 * * * *'
 
 jobs:
   update_revisions:
@@ -8,5 +8,7 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - run: echo update revisions
-      # - run: ./build_gcc.sh ${{ matrix.revision }}
+      # build 10 revisions maximum per hour
+      - run: ./update_revisions.yml 10
+      - run: git commit -a -m 'update revisions'
+      - run: git push

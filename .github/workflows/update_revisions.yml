@@ -12,8 +12,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
         with:
-          # PAT to allow commit for workflow files
-          token: ${{ secrets.WORKFLOW_COMMIT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       # build 10 revisions maximum per hour
       - run: ./update_revisions.sh 10
       - run: git config user.name "GitHub Actions Bot"

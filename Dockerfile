@@ -1,4 +1,4 @@
-FROM debian:bookworm
+FROM docker.io/debian:bookworm
 
 ARG revision="revision_should_be_set"
 

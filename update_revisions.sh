@@ -47,6 +47,6 @@ done
 
 echo "new oldest_revision: $oldest_rev"
 echo "build_list: $build_list"
-sed -e "s/oldest:.*/oldest: [\"$oldest_rev\"]/" \
-    -e "s/revision:.*/revision: [\"$build_list\"]/" \
+sed -e "s/oldest:.*/oldest: [$oldest_rev]/" \
+    -e "s/revision:.*/revision: [$build_list]/" \
     -i $workflow_file

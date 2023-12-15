@@ -14,4 +14,5 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - run: ./build_gcc.sh ${{ matrix.revision }}
+      - run: echo ${{ matrix.revision }}
+      # - run: ./build_gcc.sh ${{ matrix.revision }}

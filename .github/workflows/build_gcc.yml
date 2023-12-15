@@ -12,5 +12,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - run: echo ${{ matrix.revision }}
-      # - run: ./build_gcc.sh ${{ matrix.revision }}
+      - run: ./build_gcc.sh ${{ matrix.revision }} docker.io/$DOCKERHUB_USERNAME/gcc-ci:${{ matrix.revision }}
+      - run: podman login docker.io -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
+      - run: podman push docker.io/$DOCKERHUB_USERNAME/gcc-ci:${{ matrix.revision }}

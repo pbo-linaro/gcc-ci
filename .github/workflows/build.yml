@@ -1,0 +1,17 @@
+on:
+  schedule:
+    - cron: '0 */1 * * *'
+  push:
+    branches: [ "master" ]
+
+jobs:
+  app:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        revision: ["97094d2ffd7d00261e6d7cc5d4a62dc7c2c89b64"]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - run: ./build_gcc.sh {{ matrix.revision }}

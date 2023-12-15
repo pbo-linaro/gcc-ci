@@ -18,7 +18,7 @@ fi
 git -C gcc fetch -a
 
 workflow_file=.github/workflows/build_gcc.yml
-oldest_rev=$(cat ${workflow_file} | grep oldest | sed -e 's/.*\["//' -e 's/"\]//')
+oldest_rev=$(cat ${workflow_file} | grep oldest | sed -e 's/.*\[//' -e 's/\]//')
 [ "$oldest_rev" != "" ] || die "can't find oldest revision to build"
 
 get_all_revisions_to_build()
@@ -40,7 +40,7 @@ for rev in $(get_all_revisions_to_build); do
     if [ $need_build == 1 ]; then
         build_list="$build_list, $rev"
         num_to_build=$((num_to_build+1))
-    elif [ $num_to_build == 0 ]; then
+    elif [ $num_to_build == 1 ]; then
         oldest_rev=$rev
     fi
 done

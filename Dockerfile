@@ -12,6 +12,7 @@ RUN cd /gcc &&\
     ./configure --prefix=/gcc-bin --enable-languages=c --disable-bootstrap --disable-multilib &&\
     make --jobs=$(nproc) &&\
     make install
+ENV PATH=/gcc-bin/bin:${PATH}
 #RUN echo 'deb-src http://deb.debian.org/debian/ bookworm main' >> /etc/apt/sources.list
 #RUN apt update && apt build-dep -y gcc
 ## https://gcc.gnu.org/install/test.html

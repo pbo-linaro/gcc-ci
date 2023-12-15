@@ -2,6 +2,8 @@ on:
   schedule:
     - cron: '0 * * * *'
 
+permissions: write-all
+
 jobs:
   update_revisions:
     runs-on: ubuntu-latest

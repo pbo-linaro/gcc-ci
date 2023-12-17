@@ -33,6 +33,8 @@ for rev in $(get_all_revisions_to_build); do
         break;
     fi
 
+    echo "check if revision $rev was built"
+
     # can't use podman manifest inspect, as it fails with multi layer images
     need_build=0
     # no manifest == need to build

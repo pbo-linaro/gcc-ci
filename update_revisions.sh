@@ -26,7 +26,7 @@ get_all_revisions_to_build()
     git -C gcc log --reverse --oneline --format=format:%H ${oldest_rev}~1..origin/master
 }
 
-build_list="$oldest_rev"
+build_list="master"
 num_to_build=1
 for rev in $(get_all_revisions_to_build); do
     if [ $num_to_build -ge $how_many_builds ]; then

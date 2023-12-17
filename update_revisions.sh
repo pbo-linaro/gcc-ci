@@ -18,12 +18,12 @@ fi
 git -C gcc fetch -a
 
 workflow_file=.github/workflows/build_gcc.yml
-oldest_rev=$(cat ${workflow_file} | grep oldest | sed -e 's/.*\[//' -e 's/\]//')
-[ "$oldest_rev" != "" ] || die "can't find oldest revision to build"
+latest_rev=$(cat ${workflow_file} | grep '#latest' | sed -e 's/.*\[//' -e 's/\]//')
+[ "$latest_rev" != "" ] || die "can't find latest revision to build"
 
 get_all_revisions_to_build()
 {
-    git -C gcc log --reverse --oneline --format=format:%H ${oldest_rev}~1..origin/master
+    git -C gcc log --reverse --oneline --format=format:%H ${latest_rev}~1..origin/master
 }
 
 build_list="master"
@@ -43,12 +43,12 @@ for rev in $(get_all_revisions_to_build); do
         build_list="$build_list, $rev"
         num_to_build=$((num_to_build+1))
     elif [ $num_to_build == 1 ]; then
-        oldest_rev=$rev
+        latest_rev=$rev
     fi
 done
 
-echo "new oldest_revision: $oldest_rev"
+echo "new latest_revision: $latest_rev"
 echo "build_list: $build_list"
-sed -e "s/oldest:.*/oldest: [$oldest_rev]/" \
+sed -e "s/#latest:.*/#latest: [$latest_rev]/" \
     -e "s/revision:.*/revision: [$build_list]/" \
     -i $workflow_file

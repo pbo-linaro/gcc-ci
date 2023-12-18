@@ -12,8 +12,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        revision: [master, 91e9e8faea4086b3b8aef2355fc12c1559d425f6, bac33a522bb51e30729191e935f25c2b0a63e225, ef9754dfdf18a89de3da23c4f23365f4c2611367, f5745dc1426bdb1a53ebaf7af758b2250ccbff02, a98a39328643e092aa6f0d98586a9b7f92bfff91, bc7546e32c5a942e240ef97776352d21105ef291, 5ddf651ad91d34b754dbe280e5ab2b19cf90f8ee, bbdb72ba29ead4931a6cfff023c0485fa25e648b, 3fa689f6ed8387d315e58169bb9bace3bd508c0a]
-        #latest: [330f1e078dae257d4f8f7b13299ececc2344e681]
+        revision: [master, 8a5cac92e7c20e13f01ca0cfa5dc00d014caf0d3, 7d2e100058790e3407ae02b6db4a276957deaa4f, 1d8ac2a74fe37bb3d2fef63ed1ce19bc6f983189, 863df360fb6549ae35af9f052343d2578d4d2b63, 46984fa259436ad50afb50a46a0a16e83bdf7172, ea7bebff7cc5a5eb780a6ca646cb77cad1b625d6, 7d7a480eedf0a195318d0fce2c9c57acae43ec9d, 1ddf65c5fc6ba7cf5826e1c02c569c923a541c09, 635093595ff5ffbcab74a0d63584daf51537c542]
+        #latest: [3fa689f6ed8387d315e58169bb9bace3bd508c0a]
     steps:
       - name: checkout
         uses: actions/checkout@v3

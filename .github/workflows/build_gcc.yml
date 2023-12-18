@@ -12,8 +12,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        revision: [master, 86b6daefc8ca00f6879779f6002ca575920d38d2]
-        #latest: [b77691a90fc8a7e917417ce747bf78669304f951]
+        revision: [master, 989e67f827b74b76e58abe137ce12d948af2290c]
+        #latest: [86b6daefc8ca00f6879779f6002ca575920d38d2]
     steps:
       - name: checkout
         uses: actions/checkout@v3

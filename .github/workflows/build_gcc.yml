@@ -15,6 +15,9 @@ jobs:
         revision: [master, 1555a5e24cc3b6231491d9760e916a4193255b09, cf840a7f7c14242ab7018071310851486a557d4f, 7e1c440bc84c02e67b1cf338579a3274cdc337e0, aa2a48984c3d8c7a6a6da10d924e030b141b44cd, afd49e663258061a10f0f2c4a8f8aa2bf97bee42]
         #latest: [80e1375ed7a7a05a5a60a57e72c5ad5eba005798]
     steps:
+      - name: cleanup disk space
+        # - run: dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n
+        run: df -h && sudo apt purge -y azure-cli google-cloud-cli microsoft-edge-stable dotnet-* temurin-* google-chrome-stable llvm-* firefox powershell && sudo rm -rf /opt/* && docker system prune -af && sudo rm -rf /usr/local/lib/android /usr/local/.ghcup && df -h
       - name: checkout
         uses: actions/checkout@v3
       - run: ./build_gcc.sh ${{ matrix.revision }} docker.io/pbolinaro/gcc-ci:${{ matrix.revision }}

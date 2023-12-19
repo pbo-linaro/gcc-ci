@@ -12,8 +12,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        revision: [master, c3d97f236e942e7fd46d6ae8e0f684f9426f3ac7, 6b92b664aa2c9ba541526266bfc8d57842d378e1, 346e4645eb13cab2be1c148ca4f01d048b26c397, 15626fb1168c1a9bbf8be730005b291cfb971673, 35ef3e08ec5bc03fe2cb80efc3271168bc6d419e, 80a63cc744e9f16ace1e007f8973e97448742335, 9bbd4af0536dd137da1420f6898736fa5a57fda0, e691cda5198619359003d6d30b2e0e6fc1dae3e4, 3e137ec2ef7cbfb9c7129a0e4feb416ac2e960a0]
-        #latest: [40cf86ef4a51438a4c08e5937e5cbc61c1c28ec2]
+        revision: [master, 8106b4476482f44f042ae313f003647a1d43b372, b90089402f79ef4be049001c381dd6446af437a5, b09d948e0520574d40587c086fa43ade7316d466, 23508d3dc673de88af9a43d34d723863f1edd61d, 8ce9496f0e18f2cd1a0b86d18c534bd04fbacc31, aad881afce9edba1ccb16305c2796987c6af2543, 257a2fca4f9fdf2f506b6d5a63109fb38baacce3, a3626f49d64c8b81aadae61ae4fad7d4d0f9d6b8, 41f1b570acdea71ab107998b25a5f319a31273cd]
+        #latest: [3e137ec2ef7cbfb9c7129a0e4feb416ac2e960a0]
     steps:
       - name: cleanup disk space
         # - run: dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n

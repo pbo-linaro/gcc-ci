@@ -14,7 +14,7 @@ RUN mkdir -p /gcc &&\
     git fetch --depth=1 origin $revision &&\
     git checkout $revision &&\
     ./contrib/download_prerequisites &&\
-    ./configure --prefix=/gcc-bin --enable-languages=c --disable-bootstrap --disable-multilib &&\
+    ./configure --prefix=/gcc-bin --enable-languages=c,c++ --disable-bootstrap --disable-multilib &&\
     make --jobs=$(nproc) &&\
     make install
 ENV PATH=/gcc-bin/bin:${PATH}

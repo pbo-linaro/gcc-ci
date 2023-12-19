@@ -7,6 +7,7 @@ RUN echo 'deb-src http://deb.debian.org/debian/ bookworm main' >> /etc/apt/sourc
 RUN apt update && apt build-dep -y gcc
 ## https://gcc.gnu.org/install/test.html
 RUN apt update && apt install -y dejagnu expect tcl python3 python3-pytest autogen
+RUN apt update && apt install -y libc6-dev-i386
 RUN mkdir -p /gcc &&\
     cd /gcc &&\
     git init &&\
@@ -14,7 +15,7 @@ RUN mkdir -p /gcc &&\
     git fetch --depth=1 origin $revision &&\
     git checkout $revision &&\
     ./contrib/download_prerequisites &&\
-    ./configure --prefix=/gcc-bin --enable-languages=c,c++ --disable-bootstrap --disable-multilib &&\
+    ./configure --prefix=/gcc-bin --enable-languages=c,c++ --disable-bootstrap &&\
     make --jobs=$(nproc) &&\
     make install
 ENV PATH=/gcc-bin/bin:${PATH}

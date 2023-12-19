@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        revision: [master]
+        revision: [master, caa2d2a588c028393fa153ddddb893040f8f9833]
         #latest: [605d21f8ef1f0f0ff784adc05cbeea229a6b5ddf]
     steps:
       - name: checkout

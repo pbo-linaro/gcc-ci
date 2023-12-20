@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        revision: [master]
+        revision: [master, 40337cae12051336626d39500485cfc488c9c26e, 66c8b0f695ffaf1b727dc024618b80256317ae33, 1b83fce7df32c72bf8e0c766e5ccb285801bce15, 181917d56c0cf4b8c1174a492a8157f4a12d1100, fa1158c50a9f57a0b6ec73484134e3fce40b0bf3, 576c1fc4401a9dae9757ac2e4fa37d05e130fa3d]
         #latest: [fced59166f95e9922a72392955e4fed095afd47e]
     steps:
       - name: cleanup disk space

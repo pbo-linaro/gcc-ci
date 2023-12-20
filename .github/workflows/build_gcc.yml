@@ -12,8 +12,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        revision: [master, e7dd72aefed851d11655aa301d6e394ec9805e0d, be9e8de628471399ee5abb1e6ba7738139256b67]
-        #latest: [f5213759a7e0efc4ca7bbb484bab94ca19bc1b5d]
+        revision: [master, 96e0b513717e25405aee36851d5164aab0d0403a, 3dd6f73a231362a67ff6dee05510bb4fe6253820]
+        #latest: [be9e8de628471399ee5abb1e6ba7738139256b67]
     steps:
       - name: cleanup disk space
         # - run: dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n

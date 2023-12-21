@@ -8,12 +8,15 @@ jobs:
     env:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         revision: [master]
         #latest: [586e32583a0cdba9ecc6bc914bd12465c0280c22]
+    permissions:
+      contents: write
     steps:
       - name: checkout
         uses: actions/checkout@v3

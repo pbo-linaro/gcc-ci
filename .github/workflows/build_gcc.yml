@@ -15,11 +15,10 @@ jobs:
         revision: [master]
         #latest: [586e32583a0cdba9ecc6bc914bd12465c0280c22]
     steps:
-      - name: cleanup disk space
-        # - run: dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n
-        run: df -h && sudo apt purge -y azure-cli google-cloud-cli microsoft-edge-stable dotnet-* temurin-* google-chrome-stable llvm-* firefox powershell && sudo rm -rf /opt/* && docker system prune -af && sudo rm -rf /usr/local/lib/android /usr/local/.ghcup && df -h
       - name: checkout
         uses: actions/checkout@v3
+      - name: cleanup disk space
+        run: ./cleanup_github_runner.sh
       - run: ./build_gcc.sh ${{ matrix.revision }} docker.io/pbolinaro/gcc-ci:${{ matrix.revision }}
       - run: podman login docker.io -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
       - run: podman push docker.io/pbolinaro/gcc-ci:${{ matrix.revision }}

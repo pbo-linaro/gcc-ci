@@ -22,3 +22,4 @@ jobs:
       - run: ./build_gcc.sh ${{ matrix.revision }} docker.io/pbolinaro/gcc-ci:${{ matrix.revision }}
       - run: podman login docker.io -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
       - run: podman push docker.io/pbolinaro/gcc-ci:${{ matrix.revision }}
+      - run: ./extract_gcc_artifacts.sh docker.io/pbolinaro/gcc-ci:${{ matrix.revision }} gcc-${{ matrix.revision }}.tar.gz

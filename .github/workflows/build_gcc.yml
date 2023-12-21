@@ -23,7 +23,9 @@ jobs:
       - name: cleanup disk space
         run: ./cleanup_github_runner.sh
       - run: ./build_gcc.sh ${{ matrix.revision }} docker.io/pbolinaro/gcc-ci:${{ matrix.revision }}
-      - run: podman login docker.io -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
-      - run: podman push docker.io/pbolinaro/gcc-ci:${{ matrix.revision }}
       - run: ./extract_gcc_artifacts.sh docker.io/pbolinaro/gcc-ci:${{ matrix.revision }} gcc-${{ matrix.revision }}.tar.gz
       - run: gh release upload --clobber build gcc-${{ matrix.revision }}.tar.gz
+      # push docker image as latest step, so we can guarantee artifacts are
+      # available when image is.
+      - run: podman login docker.io -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
+      - run: podman push docker.io/pbolinaro/gcc-ci:${{ matrix.revision }}

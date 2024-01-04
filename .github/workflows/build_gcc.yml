@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        revision: [master]
+        revision: [master, 29ad18f0cf2684374d9576714fc8bd388f71f61b, 589781c1d266290e6a84fdb65fc979354d67dbac]
         #latest: [00dea7e8c41b672730d6e2c891b6012a83d8842c]
     permissions:
       contents: write

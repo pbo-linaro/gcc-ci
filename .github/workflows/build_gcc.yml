@@ -13,8 +13,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        revision: [master, 3c52d7998bd664a11a767048ef2d274766f1b160, 6a3700f9b3ecbd4873964757812ebcb2ed51b008, 7daa935c7997f3d09536d6aeab91bff2b68ca297, 5daf9104ed5d4ef21b01e9564e5325adb157e5d8, be2bf5dc93ca1ec148c605a5f25b3f7a3028bf3d, f8a70fb21767883f6d3c13e22be8d307dd98f342]
-        #latest: [9e7c77c7933b1bb0dd07214333e52a9a896fa349]
+        revision: [master, cac9d2d2346bf06b29b34e12cf0a005c37eacdc9, 91fd5c94965b4077490c6bfcc9aa4b0e4146b38a, 8ed77a2356c3562f96c64f968e7529065c128c6a]
+        #latest: [f8a70fb21767883f6d3c13e22be8d307dd98f342]
     permissions:
       contents: write
     steps:

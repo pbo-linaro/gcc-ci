@@ -13,8 +13,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        revision: [master, 94f2a1ce4b582e250b8a760a2acdd77cf98dd454, f395ed80cea4d2bd3c57bf6f52cac9f2b7f4c0d3, e8c656ff6ea34d2f6a8bc695d43c8f89281d6543, d2c9c8cf393b3646e6bd4e9d74b33fca31d38dfe, f4b2b28f325ef693f36776168a40152e9ce6cd34, 6a569f5c6c0e5da5ff68d94b132d4305bc999bd5, 27f298c1dd820de9c441eedc3f3ad519da1dea8e, 747d9a92ddb74fa7ba1bb6ca0079abd5eaa38791, d9473a5b55d512658b826129ef8bed57fe7d0d73]
-        #latest: [0b48fddeee8497369d39dcd5904bbf808cb52bd3]
+        revision: [master, c9534eb5d93dcb8bb567def37d42b8dcabcea426, 2fa0bbc3ee6551e1cf67408ef2ce7673177303e7, b44757f8360c44bb83e45bf7a0d5dc10ce4f4916, 98b779a83cbbbe87e2aad76d230b6c8674645943, 269870741990b742d3a9fa57af8e0ae709e68bbf, 14ab22c46e8dce09c7f19883f510a386cfdf2e9d, 315e267e8be68acd710c8868ca2ba7433d70239b, e755e6e407be2ed3d6d3d93a215a9237c681026d, 8e8c56392edb2cdf7d61672dda609bbb6b5941e2]
+        #latest: [d9473a5b55d512658b826129ef8bed57fe7d0d73]
     permissions:
       contents: write
     steps:
